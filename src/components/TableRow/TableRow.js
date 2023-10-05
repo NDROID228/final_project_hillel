@@ -2,19 +2,15 @@ import "./TableRow.css";
 import ButtonTable from "../ButtonTable/ButtonTable";
 
 const TableRow = ({ rowValue }) => {
-  const rowArray = [];
-  rowValue.map((value) => {
-    rowArray.push(value);
-  });
-
   return (
-    <tr>
-      <td>{ rowArray[0] }</td>
-      <td>{ rowArray[1] }</td>
-      <td>{ rowArray[2] }</td>
-      <td>{ rowArray[3] }</td>
-      <td>{ rowArray[4] }</td>
+    <tr key={"tr-" + rowValue.id}>
+      <td key={"td-id-" + rowValue.id}>{rowValue.id}</td>
+      <td key={"td-category-" + rowValue.id}>{rowValue.category}</td>
+      <td key={"td-name-" + rowValue.id}>{rowValue.name}</td>
+      <td key={"td-quantity-" + rowValue.id}>{rowValue.quantity}</td>
+      <td key={"td-price-" + rowValue.id}>{rowValue.price}</td>
       <td
+        key={"td-button-" + rowValue.id}
         style={{
           display: "flex",
           alignItems: "center",

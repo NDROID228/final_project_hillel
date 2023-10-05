@@ -5,16 +5,16 @@ table {
     color: #324b4a;
 }
 
-tr {
-    height: 1rem;
-}
-
-tr:first-child {
+thead {
     background-color: #324b4a;
     color: #95b1af;
 }
 
-tr:nth-child(even) {
+tbody tr {
+    height: 1rem;
+}
+
+tbody tr:nth-child(even) {
     background-color: #bdbdbd;
 }
 

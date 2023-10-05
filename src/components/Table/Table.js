@@ -1,19 +1,22 @@
 import "./Table.css"
 import TableRow from "../TableRow/TableRow";
 
-const Table = (props) => {
+const Table = ({products}) => {
     return(
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Category</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price ($)</th>
-                <th style={{width: "5rem"}}></th>
-            </tr>
-            <TableRow rowValue={["0", "PC", "Lenovo X234", "3", "20000.00"]} />
-            <TableRow rowValue={["0", "PC", "Lenovo X234", "3", "20000.00"]} />
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price ($)</th>
+                    <th style={{width: "5rem"}}></th>
+                </tr>
+            </thead>
+            <tbody>
+                { products.map((data) => { return <TableRow rowValue={ data } /> })}
+            </tbody>
         </table>
     )
 }
