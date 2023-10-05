@@ -1,4 +1,4 @@
-.button-delete {
+.button-table {
     height: 2rem;
     aspect-ratio: 1 / 1;
 
@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
 }
-.button-delete-img {
+.button-table-img {
     height: 80%;
     width: auto;
 }

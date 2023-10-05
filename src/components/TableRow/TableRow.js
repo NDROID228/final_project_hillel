@@ -1,17 +1,19 @@
 import "./TableRow.css";
-import ButtonEdit from "../ButtonEdit/ButtonEdit";
-import ButtonDelete from "../ButtonDelete/ButtonDelete";
+import ButtonTable from "../ButtonTable/ButtonTable";
 
-const TableRow = (props) => {
-  const [ID, Category, Name, Quantity, Price] = props.rowValue;
+const TableRow = ({ rowValue }) => {
+  const rowArray = [];
+  rowValue.map((value) => {
+    rowArray.push(value);
+  });
 
   return (
     <tr>
-      <td>{ID}</td>
-      <td>{Category}</td>
-      <td>{Name}</td>
-      <td>{Quantity}</td>
-      <td>{Price}</td>
+      <td>{ rowArray[0] }</td>
+      <td>{ rowArray[1] }</td>
+      <td>{ rowArray[2] }</td>
+      <td>{ rowArray[3] }</td>
+      <td>{ rowArray[4] }</td>
       <td
         style={{
           display: "flex",
@@ -19,8 +21,8 @@ const TableRow = (props) => {
           justifyContent: "space-around",
         }}
       >
-        <ButtonEdit />
-        <ButtonDelete />
+        <ButtonTable icon="edit" />
+        <ButtonTable icon="delete" />
       </td>
     </tr>
   );

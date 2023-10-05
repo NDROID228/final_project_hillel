@@ -7,7 +7,7 @@ const Button = (props) => {
   const buttonText = props.buttonText;
   const hasIcon = props.hasIcon === "true";
   
-  if(hasIcon && buttonText !== undefined) {
+  if(hasIcon && buttonText) {
     let icon = buttonText === "Preview" ? iconAdmin : iconPlus;
     return (
     <button className={buttonName}>
