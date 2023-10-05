@@ -1,0 +1,40 @@
+.table-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.table-container .table-box {
+    width: 95%;
+    height: 100%;
+
+    margin-top: 20px;
+}
+
+.table-container .table-box .table-logo {
+
+}
+
+.table-container .table-box .table-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-container .table-box .table-title {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.table-container .table-box .table-products-list-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.table-container .table-box .table-products-list-container .table-products-list {
+    width: 77%;
+    
+}

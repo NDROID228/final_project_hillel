@@ -1,0 +1,15 @@
+.button-delete {
+    height: 2rem;
+    aspect-ratio: 1 / 1;
+
+    background-color: #324b4a;
+    border: solid 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-delete-img {
+    height: 80%;
+    width: auto;
+}
