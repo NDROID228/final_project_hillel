@@ -1,35 +1,35 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
-    background-color: #95b1af;
-    /* color: #324b4a; */
+  background-color: #95b1af;
+  /* color: #324b4a; */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-container {
-    width: calc(100vw / 3);
-    height: calc(100vh / 2);
+  width: calc(100vw / 3);
+  height: calc(100vh / 2);
 
-    background-color: #fff;
-    color: #324b4a;
+  background-color: #fff;
+  color: #324b4a;
 
-    box-shadow: 5px 5px 10px #324b4a;
-    border-radius: 2px;
+  box-shadow: 5px 5px 10px #324b4a;
+  border-radius: 2px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-container .logo {
-    width: 60%;
-    height: auto;
+  width: 60%;
+  height: auto;
 }
