@@ -1,6 +1,15 @@
-body {
+html, body {
   margin: 0;
+  padding: 0;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background-color: #95b1af;
+  color: #324b4a;
+
   font-family: 'Roboto', 'Regular';
   font-weight: 400;
 }
-

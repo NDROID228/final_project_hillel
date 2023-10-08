@@ -1,0 +1,14 @@
+tr {
+    height: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #bdbdbd;
+}
+
+td {
+    height: 100%;
+    border: 1px solid #7e7e7e;
+    text-align: center;
+    padding: 8px;
+}

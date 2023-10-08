@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px 0 #324b4a;
+    color: #324b4a;
+}
+
+thead {
+    background-color: #324b4a;
+    color: #95b1af;
+}
+
+tbody tr {
+    height: 1rem;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #bdbdbd;
+}
+
+td, th {
+    height: 100%;
+    border: 1px solid #7e7e7e;
+    text-align: center;
+    padding: 8px;
+}
