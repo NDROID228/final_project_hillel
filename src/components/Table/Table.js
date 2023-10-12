@@ -1,7 +1,16 @@
 import "./Table.css";
+import React, { useState, useEffect } from "react";
 import TableRow from "../TableRow/TableRow";
 
 const Table = ({ products }) => {
+  const [productsArr, setProducts] = useState([]);
+  
+  useEffect(() => {
+    setProducts(() => products);
+  }, [products])
+
+  console.log(productsArr);
+
   return (
     <table>
       <thead>
@@ -14,11 +23,13 @@ const Table = ({ products }) => {
           <th style={{ width: "5rem" }}></th>
         </tr>
       </thead>
-      <tbody>{() => { 
-        products.map((data) => {
-          return <TableRow rowValue={data} />;
-        });
-      }}</tbody>
+      <tbody>
+        {
+          productsArr.map((data) => {
+            return <TableRow rowValue={data} />;
+          })
+        }
+      </tbody>
     </table>
   );
 };
