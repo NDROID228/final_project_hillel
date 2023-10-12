@@ -26,5 +26,5 @@ const PreviewCard = (props) => {
     </div>
   );
 };
-
+ 
 export default PreviewCard;

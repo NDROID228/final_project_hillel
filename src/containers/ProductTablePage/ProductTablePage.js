@@ -5,7 +5,7 @@ import Table from "../../components/Table/Table";
 import Logo from "../../assets/img/somelogo.png";
 
 const ProductTable = (props) => {
-
+  
   const getDataTable = async () => {
     let json;
     try {
@@ -33,7 +33,7 @@ const ProductTable = (props) => {
     });
     console.log(productsArr);
     return productsArr;
-  });
+  }); 
   })
   console.log(productsArr);
   return (

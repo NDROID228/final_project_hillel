@@ -14,7 +14,7 @@ const Table = ({ products }) => {
           <th style={{ width: "5rem" }}></th>
         </tr>
       </thead>
-      <tbody>{() => {
+      <tbody>{() => { 
         products.map((data) => {
           return <TableRow rowValue={data} />;
         });
