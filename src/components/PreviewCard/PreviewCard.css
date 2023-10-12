@@ -1,0 +1,99 @@
+.preview-card-container {
+  margin: 2%;
+  min-width: 350px;
+  width: 28%;
+  max-width: 375px;
+  height: 500px;
+
+  background-color: #324b4a;
+  color: #95b1af;
+  border: 2px solid #95b1af;
+  border-radius: 10px;
+  box-shadow: 1px 1px 50px #324b4a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-card-box {
+  width: 90%;
+  height: 90%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-card-top {
+  height: 65%;
+  width: 100%;
+  background-color: #fff;
+
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.preview-card-top .image {
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.preview-card-top .title {
+  width: 90%;
+  height: 20%;
+  color: #324b4a;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.preview-card-center {
+  height: calc(35% / 2);
+  width: 90%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-card-center .price {
+  font-size: 30px;
+  text-align: center;
+  color: bisque;
+}
+
+.preview-card-center span {
+  font-size: 20px;
+}
+
+.preview-card-center .amount {
+  font-size: 20px;
+}
+
+.preview-card-bottom {
+  height: calc(35% / 2);
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-card-bottom .icon {
+  height: 60%;
+}
+
+.preview-card-bottom .text {
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: center;
+}

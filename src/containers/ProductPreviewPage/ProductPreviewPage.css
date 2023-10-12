@@ -1,0 +1,10 @@
+.container .box .logo {
+  user-select: none;
+}
+
+.preview-cards-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
