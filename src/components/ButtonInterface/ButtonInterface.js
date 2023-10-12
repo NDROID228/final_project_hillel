@@ -21,7 +21,7 @@ const Button = (props) => {
   }
 
   return (
-  <button className={buttonName}>
+  <button className={buttonName} disabled={props.disable}>
     {buttonText}
   </button>
   );

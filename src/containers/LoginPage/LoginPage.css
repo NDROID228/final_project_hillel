@@ -26,3 +26,9 @@
   width: 60%;
   height: auto;
 }
+
+.form-container .form-box .input-label {
+  width: 60%;
+  margin-top: 10px;
+  color: red;
+}

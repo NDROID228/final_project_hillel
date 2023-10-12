@@ -1,37 +1,45 @@
 import "./ProductTablePage.css";
+import React, { useState, useEffect } from "react"; 
 import Button from "../../components/ButtonInterface/ButtonInterface";
 import Table from "../../components/Table/Table";
 import Logo from "../../assets/img/somelogo.png";
 
 const ProductTable = (props) => {
-  const products = [
-    {
-      id: 1,
-      category: "PC",
-      name: "Lenovo Y50-70",
-      quantity: 5,
-      price: 25000.0
-    },
-    {
-      id: 2,
-      category: "Clothes",
-      name: "Nike M Nk Df Acd21",
-      quantity: 22,
-      price: 4000.0
-    },
-    {
-      id: 3,
-      category: "Plumbing",
-      name: "CERSANIT MITO 17",
-      quantity: 1337,
-      price: 5000.0
-    }
-  ];
 
+  const getDataTable = async () => {
+    let json;
+    try {
+      const response = await fetch("http://localhost:3001/infoTable", {
+        method: "GET",
+      });
+  
+      if (!response.ok) {
+        throw Error(response.statusText || "Something wrong");
+      }
+  
+      json = await response.json();
+    } catch (err) {
+      console.error(err);
+    }
+
+    return JSON.parse(json);
+  };
+  let productsArr = [];
+  useEffect(() => {
+    let fullPromise = getDataTable();
+    fullPromise.then((res) => {
+    res.forEach(elem => {
+      productsArr.push(elem);
+    });
+    console.log(productsArr);
+    return productsArr;
+  });
+  })
+  console.log(productsArr);
   return (
-    <div className="table-container">
-      <div className="table-box">
-        <img className="table-logo" src={Logo} />
+    <div className="container">
+      <div className="box">
+        <img className="logo" src={Logo} />
         <div className="table-buttons">
           <Button
             buttonName="ProductTableBtn"
@@ -47,7 +55,7 @@ const ProductTable = (props) => {
         <h1 className="table-title">Products</h1>
         <div className="table-products-list-container">
           <div className="table-products-list">
-            <Table products={ products } />
+            <Table products={productsArr} />
           </div>
         </div>
       </div>
