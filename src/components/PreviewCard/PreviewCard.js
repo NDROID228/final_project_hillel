@@ -2,7 +2,7 @@ import "./PreviewCard.css";
 import lenovo from "../../assets/img/ProductPreview/lenovo.png";
 import Buy from "../../assets/img/ProductPreview/buy.png";
 
-const PreviewCard = (props) => {
+const PreviewCard = ({data}) => {
   return (
     <div className="preview-card-container">
       <div className="preview-card-box">

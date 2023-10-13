@@ -2,7 +2,6 @@ import "./TableRow.css";
 import ButtonTable from "../ButtonTable/ButtonTable";
 
 const TableRow = ({ rowValue }) => {
-  console.log(rowValue);
   return (
     <tr key={"tr-" + rowValue.frontID}>
       <td key={"td-id-" + rowValue.frontID}>{rowValue.frontID}</td>

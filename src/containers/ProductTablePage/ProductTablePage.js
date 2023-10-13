@@ -6,10 +6,11 @@ import Logo from "../../assets/img/somelogo.png";
 
 const ProductTable = (props) => {
   const [productsArr, setProductsArr] = useState([]);
-  const renderAfterCalled = useRef(false);
+  const isFethced = useRef(false);
 
   const getDataTable = async () => {
     let json;
+
     try {
       const response = await fetch("http://localhost:3001/infoTable");
 
@@ -22,30 +23,18 @@ const ProductTable = (props) => {
       console.error(err);
     }
 
-    return JSON.parse(json);
-  };
-
-  const unpackPromise = () => {
-    let productsArr = [];
-    let fullPromise = getDataTable();
-    fullPromise.then((res) => {
-      res.forEach((elem) => {
-        productsArr.push(elem);
-      });
-      console.log(productsArr);
-      return productsArr;
-    });
-    return productsArr;
+    let productsArr = JSON.parse(json);
+    
+    setProductsArr(productsArr);
   };
 
   useEffect(() => {
-    if (!renderAfterCalled.current) {
-      let products = unpackPromise()
-      setProductsArr(() => products);
+    if (!isFethced.current) {
+      getDataTable();
     }
-
-    renderAfterCalled.current = true;
-  }, []);
+    
+    isFethced.current = true;
+  });
 
   return (
     <React.StrictMode>

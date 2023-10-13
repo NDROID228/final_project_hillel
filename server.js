@@ -19,7 +19,8 @@ app.use(
 
 // connect to MongoDB + start server
 const PORT = 3001;
-const URL = "mongodb+srv://NDROID:DNS15022007@clustertest.dnjoj6z.mongodb.net/projectHillel";
+const URL =
+  "mongodb+srv://NDROID:DNS15022007@clustertest.dnjoj6z.mongodb.net/projectHillel";
 
 mongoose
   .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -44,66 +45,63 @@ const checkUser = (usersArr, tryUser) => {
     }
   }
   return "";
-}
+};
 
 app.post("/password", cors(), (req, res) => {
   let conn = mongoose.connection;
 
   let getDataPromise = new Promise((res, rej) => {
-    Users
-    .find({})
-    .exec()
-    .then((data) => {
-      // conn.close();
-      console.log(data);
-      res(data);
-    })
-    .catch((err) => {
-      // conn.close();
-      rej(err);
-    });
+    Users.find({})
+      .exec()
+      .then((data) => {
+        console.log(data);
+        res(data);
+      })
+      .catch((err) => {
+        rej(err);
+      });
   });
 
   getDataPromise
-  .then((resolve) => { 
-    TOKEN = checkUser(resolve, req.body);
-    console.log("TOKEN: " + TOKEN);
-    if ( TOKEN != "" ) {
-      conn.close();
-      res.json(TOKEN);
-    } else {
-      res.json(null);
-    }
-  }).catch((err) => {
-    throw err;
-  })
+    .then((resolve) => {
+      TOKEN = checkUser(resolve, req.body);
+      console.log("TOKEN: " + TOKEN);
+      if (TOKEN != "") {
+        conn.close();
+        res.json(TOKEN);
+      } else {
+        res.json(null);
+      }
+    })
+    .catch((err) => {
+      throw err;
+    });
 });
 
 app.get("/infoTable", cors(), (req, res) => {
   let conn = mongoose.connection;
   let getDataPromise = new Promise((resolve, reject) => {
-  Products
-    .find({}, {_id: 0, frontID: 1, category: 1, name: 1, quantity: 1, price: 1})
-    .exec()
-    .then((data) => {
-      // data.forEach(elem => {
-      //   delete elem._id
-      // })
-      resolve(data);
-    })
-    .catch((err) => {
-      reject(err);
-    });
+    Products.find(
+      {},
+      { _id: 0, frontID: 1, category: 1, name: 1, quantity: 1, price: 1 }
+    )
+      .exec()
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
   });
 
   getDataPromise
-  .then((resolve) => { 
-    // conn.close();
-    let result = JSON.stringify(resolve);
-    res.json(result);
-  }).catch((err) => {
-    throw err;
-  })
+    .then((resolve) => {
+      let result = JSON.stringify(resolve);
+      res.json(result);
+    })
+    .catch((err) => {
+      throw err;
+    });
 });
 
 app.get("/", (req, res) => {
