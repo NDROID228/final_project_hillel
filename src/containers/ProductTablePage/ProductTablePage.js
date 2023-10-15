@@ -6,7 +6,6 @@ import Logo from "../../assets/img/somelogo.png";
 
 const ProductTable = (props) => {
   const [productsArr, setProductsArr] = useState([]);
-  const isFethced = useRef(false);
 
   const getDataTable = async () => {
     let json;
@@ -22,19 +21,15 @@ const ProductTable = (props) => {
     } catch (err) {
       console.error(err);
     }
-
+    
     let productsArr = JSON.parse(json);
     
     setProductsArr(productsArr);
   };
-
+  
   useEffect(() => {
-    if (!isFethced.current) {
-      getDataTable();
-    }
-    
-    isFethced.current = true;
-  });
+    getDataTable();
+  }, []);
 
   return (
     <React.StrictMode>

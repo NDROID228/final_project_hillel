@@ -1,10 +1,24 @@
 import "./ProductPreviewPage.css";
 import React, { useState, useEffect } from "react";
 import Logo from "../../assets/img/somelogo.png";
+import imgLenovo from "../../assets/img/ProductPreview/lenovo.png";
 import PreviewCard from "../../components/PreviewCard/PreviewCard";
 
 const ProductPreviewPage = () => {
-  const data = [{}, {}, {}];
+  const data = [{
+    title: "Lenovo Laptop H380",
+    imageSrc: imgLenovo,
+    price: 800,
+    amount: 5,
+    isReady: true
+  }, 
+  {
+    title: "Lenovo Laptop G300",
+    imageSrc: imgLenovo,
+    price: 700,
+    amount: 0,
+    isReady: false
+  },];
   const [cardsArr, setCard] = useState([]);
 
   const unpackData = (() => {

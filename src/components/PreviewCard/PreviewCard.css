@@ -51,9 +51,9 @@
   height: 20%;
   color: #324b4a;
   font-size: 20px;
-  text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .preview-card-center {
