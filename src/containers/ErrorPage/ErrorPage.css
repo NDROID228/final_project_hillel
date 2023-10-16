@@ -1,0 +1,14 @@
+.container {
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .num-404 {
+    font-size: 200px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.container .text-404 {
+    font-size: 40px;
+}

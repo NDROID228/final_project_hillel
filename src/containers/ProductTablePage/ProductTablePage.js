@@ -1,11 +1,17 @@
 import "./ProductTablePage.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/ButtonInterface/ButtonInterface";
 import Table from "../../components/Table/Table";
 import Logo from "../../assets/img/somelogo.png";
 
-const ProductTable = (props) => {
+const ProductTablePage = (props) => {
   const [productsArr, setProductsArr] = useState([]);
+  const navigate = useNavigate();
+
+  const redirectToPreview = () => {
+    navigate("/preview");
+  }
 
   const getDataTable = async () => {
     let json;
@@ -41,6 +47,7 @@ const ProductTable = (props) => {
               buttonName="ProductTableBtn"
               buttonText="Preview"
               hasIcon="true"
+              onClickEvt={redirectToPreview}
             />
             <Button
               buttonName="ProductTableBtn"
@@ -60,4 +67,4 @@ const ProductTable = (props) => {
   );
 };
 
-export default ProductTable;
+export default ProductTablePage;

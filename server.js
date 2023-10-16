@@ -48,7 +48,7 @@ const checkUser = (usersArr, tryUser) => {
 };
 
 app.post("/password", cors(), (req, res) => {
-  let conn = mongoose.connection;
+  let conn = mongoose.connection; // conn.close();
 
   let getDataPromise = new Promise((res, rej) => {
     Users.find({})
@@ -67,7 +67,7 @@ app.post("/password", cors(), (req, res) => {
       TOKEN = checkUser(resolve, req.body);
       console.log("TOKEN: " + TOKEN);
       if (TOKEN != "") {
-        conn.close();
+        // conn.close();
         res.json(TOKEN);
       } else {
         res.json(null);

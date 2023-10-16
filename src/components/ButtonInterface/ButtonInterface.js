@@ -6,11 +6,12 @@ const Button = (props) => {
   const buttonName = props.buttonName;
   const buttonText = props.buttonText;
   const hasIcon = props.hasIcon === "true";
+  const onClickEvt = props.onClickEvt;
   
   if(hasIcon && buttonText) {
     let icon = buttonText === "Preview" ? iconAdmin : iconPlus;
     return (
-    <button className={buttonName}>
+    <button className={buttonName} onClick={onClickEvt}>
         <div className="ProductTableBtnIcon">
             <img src={icon} />
         </div>

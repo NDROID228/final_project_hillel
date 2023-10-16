@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import Button from "../../components/ButtonInterface/ButtonInterface";
 import logo from "../../assets/img/somelogo.png";
 import InputForm from "../../components/InputForm/InputForm";
 
-const Login = (props) => {
+const LoginPage = (props) => {
   const [fieldsForm, setFieldsForm] = useState({ username: "", password: "" });
   const [errorText, setErrorText] = useState({
-    usernameInput: "Fill this box",
-    passwordInput: "Fill this box",
+    usernameInput: "",
+    passwordInput: "",
   });
   const [isDisabled, setDisabler] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -37,7 +39,6 @@ const Login = (props) => {
     let TOKEN;
     try {
       const formData = JSON.stringify(fieldsForm);
-      console.log(formData);
       const response = await fetch("http://localhost:3001/password", {
         method: "POST",
         body: formData,
@@ -64,7 +65,8 @@ const Login = (props) => {
     } else {
       setErrorText({ usernameInput: "", usernameInput: "" });
       localStorage.setItem("user_token", TOKEN);
-      setDisabler(true)
+      navigate("/table", { relative: "path" });
+      setDisabler(true);
     }
   }
 
@@ -99,4 +101,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default LoginPage;
