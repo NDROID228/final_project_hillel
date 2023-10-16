@@ -1,14 +1,11 @@
+import React, { useEffect } from "react";
 import "./ProductDetails.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = (props) => {
-  const navigate = useNavigate();
+  let { productID } = useParams();
 
-  const redirectToProductDetails = () => {
-    navigate("/");
-  };
-
-  return <div>Choosen product is {props.id}</div>;
+  return <div>Choosen product is {productID}</div>;
 };
 
 export default ProductDetails;
