@@ -1,15 +1,24 @@
 import "./PreviewCard.css";
+import { useNavigate } from "react-router-dom";
 import Buy from "../../assets/img/ProductPreview/buy.png";
 
 const PreviewCard = ({data}) => {
+  const navigate = useNavigate();
+
+  const productID = data.frontID;
   let isReady = "";
   if (data.isReady) {
     isReady = "Готовий до відправки";
   } else {
     isReady = "Немає у наявності";
   }
+
+  const redirectToProductDetails = () => {
+    navigate(`/preview/${productID}`);
+  }
+
   return (
-    <div className="preview-card-container">
+    <div className="preview-card-container" onClick={redirectToProductDetails}>
       <div className="preview-card-box">
         <div className="preview-card-top">
           <img className="image" src={data.imageSrc} alt={data.title} />
