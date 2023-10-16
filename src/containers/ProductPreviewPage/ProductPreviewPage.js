@@ -1,5 +1,5 @@
 import "./ProductPreviewPage.css";
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import Logo from "../../assets/img/somelogo.png";
 import imgLenovo from "../../assets/img/ProductPreview/lenovo.png";
 import PreviewCard from "../../components/PreviewCard/PreviewCard";
@@ -19,26 +19,17 @@ const ProductPreviewPage = () => {
     amount: 0,
     isReady: false
   },];
-  const [cardsArr, setCard] = useState([]);
-
-  const unpackData = (() => {
-    let tempArr = [];
-    data.map((data) => {
-      tempArr.push(<PreviewCard data={data} />);
-    });
-    return tempArr;
-  })
-
-  useEffect(() => {
-    setCard(unpackData());
-  }, [])
 
   return (
     <div className="container">
       <div className="box">
         <img className="logo" src={Logo} />
         <div className="preview-cards-box">
-          {cardsArr}
+          {
+            data.map((data) => {
+              return (<PreviewCard data={data} />);
+            })
+          }
         </div>
       </div>
     </div>
