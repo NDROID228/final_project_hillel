@@ -6,6 +6,7 @@ import PreviewCard from "../../components/PreviewCard/PreviewCard";
 
 const ProductPreviewPage = () => {
   const data = [{
+    frontID: 1,
     title: "Lenovo Laptop H380",
     imageSrc: imgLenovo,
     price: 800,
@@ -13,6 +14,7 @@ const ProductPreviewPage = () => {
     isReady: true
   }, 
   {
+    frontID: 2,
     title: "Lenovo Laptop G300",
     imageSrc: imgLenovo,
     price: 700,
