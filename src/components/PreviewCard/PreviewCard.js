@@ -2,12 +2,13 @@ import "./PreviewCard.css";
 import { useNavigate } from "react-router-dom";
 import Buy from "../../assets/img/ProductPreview/buy.png";
 
-const PreviewCard = ({data}) => {
+const PreviewCard = ({ data }) => {
+  console.log(data);
   const navigate = useNavigate();
 
   const productID = data.frontID;
   let isReady = "";
-  if (data.isReady) {
+  if (data.isAvailable) {
     isReady = "Готовий до відправки";
   } else {
     isReady = "Немає у наявності";
@@ -15,20 +16,21 @@ const PreviewCard = ({data}) => {
 
   const redirectToProductDetails = () => {
     navigate(`/preview/${productID}`);
-  }
+  };
 
   return (
     <div className="preview-card-container" onClick={redirectToProductDetails}>
       <div className="preview-card-box">
         <div className="preview-card-top">
-          <img className="image" src={data.imageSrc} alt={data.title} />
+          <img className="image" src={data.imageSrc} alt={data.name} />
           <div className="title">
-            <p>{data.title}</p>
+            <p>{`${data.category}  ${data.name}`}</p>
           </div>
         </div>
         <div className="preview-card-center">
           <p className="price">
-            {data.price}<span>$</span>
+            {data.price}
+            <span>$</span>
           </p>
           <p className="amount">Кількість: {data.amount}</p>
         </div>
@@ -40,5 +42,5 @@ const PreviewCard = ({data}) => {
     </div>
   );
 };
- 
+
 export default PreviewCard;
