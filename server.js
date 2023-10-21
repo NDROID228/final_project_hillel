@@ -104,6 +104,80 @@ app.get("/infoTable", cors(), (req, res) => {
     });
 });
 
+app.get("/infoCards", cors(), (req, res) => {
+  let conn = mongoose.connection;
+  let getDataPromise = new Promise((resolve, reject) => {
+    Products.find(
+      {},
+      {
+        _id: 0,
+        frontID: 1,
+        category: 1,
+        name: 1,
+        quantity: 1,
+        price: 1,
+        amount: 1,
+        isAvailable: 1,
+      }
+    )
+      .exec()
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+  getDataPromise
+    .then((resolve) => {
+      let result = JSON.stringify(resolve);
+      console.log(resolve);
+      res.json(result);
+    })
+    .catch((err) => {
+      throw err;
+    });
+});
+
+app.post("/infoDetails", cors(), (req, res) => {
+  let conn = mongoose.connection;
+  console.log(Number(req.body.ID));
+  let getDataPromise = new Promise((resolve, reject) => {
+    Products.find(
+      { "frontID": Number(req.body.ID) }, 
+      {
+        _id: 0,
+        category: 1,
+        name: 1,
+        quantity: 1,
+        price: 1,
+        amount: 1,
+        isAvailable: 1,
+        text: 1,
+      }
+    )
+      .exec()
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+  getDataPromise
+    .then((resolve) => {
+      let result = JSON.stringify(resolve);
+      console.log("infoDetails");
+      console.log(resolve);
+      res.json(result);
+    })
+    .catch((err) => {
+      throw err;
+    });
+});
+
 app.get("/", (req, res) => {
   return res.send("Hello, I`m just a little server >_<");
 });
