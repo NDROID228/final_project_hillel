@@ -2,13 +2,13 @@ import "./Table.css";
 import React, { useState, useEffect } from "react";
 import TableRow from "../TableRow/TableRow";
 
-const Table = ({products}) => {
+const Table = ({products, setShowModal}) => {
   const [productsArr, setProducts] = useState([]);
 
   useEffect(() => {
     let tempArr = [];
     products.map((data) => {
-      tempArr.push(<TableRow rowValue={data} />);
+      tempArr.push(<TableRow key={data._id} rowValue={data} setShowModal={setShowModal}/>);
     });
     setProducts(tempArr);
   }, [products]);

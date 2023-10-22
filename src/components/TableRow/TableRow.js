@@ -1,7 +1,7 @@
 import "./TableRow.css";
 import ButtonTable from "../ButtonTable/ButtonTable";
 
-const TableRow = ({ rowValue }) => {
+const TableRow = ({ rowValue, setShowModal }) => {
   return (
     <tr key={"tr-" + rowValue.frontID}>
       <td key={"td-id-" + rowValue.frontID}>{rowValue.frontID}</td>
@@ -17,8 +17,8 @@ const TableRow = ({ rowValue }) => {
           justifyContent: "space-around",
         }}
       >
-        <ButtonTable icon="edit" />
-        <ButtonTable icon="delete" />
+        <ButtonTable key={"td-btn-edit-" + rowValue.frontID} typeBtn="edit" onClickMethod={() => (rowValue.frontID)} />
+        <ButtonTable key={"td-btn-delete-" + rowValue.frontID} typeBtn="delete" onClickMethod={() => setShowModal({state: "", id: rowValue._id})} />
       </td>
     </tr>
   );

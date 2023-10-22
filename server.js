@@ -83,7 +83,14 @@ app.get("/infoTable", cors(), (req, res) => {
   let getDataPromise = new Promise((resolve, reject) => {
     Products.find(
       {},
-      { _id: 0, frontID: 1, category: 1, name: 1, quantity: 1, price: 1 }
+      {
+        _id: 1,
+        frontID: 1,
+        category: 1,
+        name: 1,
+        quantity: 1,
+        price: 1,
+      }
     )
       .exec()
       .then((data) => {
@@ -145,7 +152,7 @@ app.post("/infoDetails", cors(), (req, res) => {
   console.log(Number(req.body.ID));
   let getDataPromise = new Promise((resolve, reject) => {
     Products.find(
-      { "frontID": Number(req.body.ID) }, 
+      { frontID: Number(req.body.ID) },
       {
         _id: 0,
         category: 1,
@@ -177,6 +184,24 @@ app.post("/infoDetails", cors(), (req, res) => {
       throw err;
     });
 });
+
+app.delete("/deleteRow", cors(), (req, res) => {
+  console.log(req.body.frontID);
+  const id = req.body.frontID;
+  let deleteDataPromise = new Promise((resolve, reject) => {
+    Products.findByIdAndDelete(id)
+      .then((data) => {
+        console.log(data);
+        res.json("peremoga!");
+      })
+      .catch((err) => {
+        console.log(err);
+        // reject(err);
+      });
+  });
+});
+
+app.get("/updateRow", cors(), (req, res) => {});
 
 app.get("/", (req, res) => {
   return res.send("Hello, I`m just a little server >_<");
