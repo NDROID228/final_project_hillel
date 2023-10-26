@@ -4,11 +4,11 @@ import ButtonTable from "../ButtonTable/ButtonTable";
 const TableRow = ({ rowValue, setShowModal }) => {
   return (
     <tr key={"tr-" + rowValue.frontID}>
-      <td key={"td-id-" + rowValue.frontID}>{rowValue.frontID}</td>
-      <td key={"td-category-" + rowValue.frontID}>{rowValue.category}</td>
-      <td key={"td-name-" + rowValue.frontID}>{rowValue.name}</td>
-      <td key={"td-quantity-" + rowValue.frontID}>{rowValue.quantity}</td>
-      <td key={"td-price-" + rowValue.frontID}>{rowValue.price}</td>
+      <td>{rowValue.frontID}</td>
+      <td>{rowValue.category}</td>
+      <td>{rowValue.name}</td>
+      <td>{rowValue.quantity}</td>
+      <td>{rowValue.price}</td>
       <td
         key={"td-button-" + rowValue.frontID}
         style={{
@@ -17,8 +17,8 @@ const TableRow = ({ rowValue, setShowModal }) => {
           justifyContent: "space-around",
         }}
       >
-        <ButtonTable key={"td-btn-edit-" + rowValue.frontID} typeBtn="edit" onClickMethod={() => (rowValue.frontID)} />
-        <ButtonTable key={"td-btn-delete-" + rowValue.frontID} typeBtn="delete" onClickMethod={() => setShowModal({state: "", id: rowValue._id})} />
+        <ButtonTable typeBtn="edit" onClickMethod={() => (rowValue.frontID)} />
+        <ButtonTable typeBtn="delete" onClickMethod={() => setShowModal({state: "", id: rowValue._id})} />
       </td>
     </tr>
   );
