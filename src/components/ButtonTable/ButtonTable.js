@@ -2,14 +2,37 @@ import "./ButtonTable.css";
 import iconEdit from "../../assets/img/ProductTable/edit.png";
 import iconDelete from "../../assets/img/ProductTable/delete.png";
 
-const ButtonTable = (props) => {
-    const icon = props.icon === "edit" ? iconEdit : iconDelete;
+const ButtonTable = ({ typeBtn, onClickMethod }) => {
+  const editOnClick = async () => {
+    // let TOKEN;
+    // try {
+    //   const formData = JSON.stringify(fieldsForm);
+    //   const response = await fetch("http://localhost:3001/editRow", {
+    //     method: "POST",
+    //     body: formData,
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Accept: "application/json",
+    //     },
+    //   });
 
-    return (
-        <button className="button-table">
-            <img src={ icon } className="button-table-img" />
-        </button>
-    )
-}
+    //   if (!response.ok) {
+    //     throw Error(response.statusText || "Something wrong");
+    //   }
+
+    //   TOKEN = await response.json();
+    // } catch (err) {
+    //   console.error(err);
+    // }
+  };
+
+  const iconBtn = typeBtn === "edit" ? iconEdit : iconDelete;
+
+  return (
+    <button className="button-table" onClick={onClickMethod}>
+      <img src={iconBtn} className="button-table-img" />
+    </button>
+  );
+};
 
 export default ButtonTable;
