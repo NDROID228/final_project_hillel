@@ -1,14 +1,22 @@
-import "./Table.css";
+import "./Table.scss";
 import React, { useState, useEffect } from "react";
 import TableRow from "../TableRow/TableRow";
 
-const Table = ({products, setShowModal}) => {
+const Table = ({ products, setShowModalDelete, setShowModalEdit, setFormTitle }) => {
   const [productsArr, setProducts] = useState([]);
 
   useEffect(() => {
     let tempArr = [];
     products.map((data) => {
-      tempArr.push(<TableRow key={data._id} rowValue={data} setShowModal={setShowModal}/>);
+      tempArr.push(
+        <TableRow
+          key={data._id}
+          rowValue={data}
+          setShowModalDelete={setShowModalDelete}
+          setShowModalEdit={setShowModalEdit}
+          setFormTitle={setFormTitle}
+        />
+      );
     });
     setProducts(tempArr);
   }, [products]);
@@ -25,9 +33,7 @@ const Table = ({products, setShowModal}) => {
           <th style={{ width: "5rem" }}></th>
         </tr>
       </thead>
-      <tbody>
-        { productsArr }
-      </tbody>
+      <tbody>{productsArr}</tbody>
     </table>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ProductDetails.css";
+import "./ProductDetails.scss";
 import Logo from "../../assets/img/somelogo.png";
 import ArrowBack from "../../assets/img/ProductDetails/arrow-back.png";
 import Lenovo from "../../assets/img/ProductPreview/lenovo.png";

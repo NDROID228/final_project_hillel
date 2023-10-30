@@ -1,14 +1,23 @@
-import "./ProductTablePage.css";
+import "./ProductTablePage.scss";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ButtonInterface/ButtonInterface";
 import Table from "../../components/Table/Table";
 import Logo from "../../assets/img/somelogo.png";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
+import ModalEdit from "../../components/ModalEdit/ModalEdit";
 
 const ProductTablePage = (props) => {
-  const [showModal, setShowModal] = useState({state: "hidden", id: null});
+  const [showModalDelete, setShowModalDelete] = useState({
+    state: "hidden",
+    id: null,
+  });
+  const [showModalEdit, setShowModalEdit] = useState({
+    state: "hidden",
+    id: null,
+  });
   const [productsArr, setProductsArr] = useState([]);
+  const [formTitle, setFormTitle] = useState("");
   const navigate = useNavigate();
 
   const redirectToPreview = () => {
@@ -42,7 +51,17 @@ const ProductTablePage = (props) => {
   return (
     <React.StrictMode>
       <div className="container">
-        <ModalDelete showModal={showModal} setShowModal={setShowModal} getDataTable={getDataTable} />
+        <ModalDelete
+          showModalDelete={showModalDelete}
+          setShowModalDelete={setShowModalDelete}
+          getDataTable={getDataTable}
+        />
+        <ModalEdit
+          showModalEdit={showModalEdit}
+          setShowModalEdit={setShowModalEdit}
+          formTitle={formTitle}
+          /*editDataTable={editDataTable}*/
+        />
         <div className="box">
           <img className="logo" src={Logo} />
           <div className="table-buttons">
@@ -56,12 +75,21 @@ const ProductTablePage = (props) => {
               buttonName="ProductTableBtn"
               buttonText="Add product"
               hasIcon="true"
+              onClickEvt={() => {
+                setShowModalEdit({ state: "", id: "" });
+                setFormTitle("Add product");
+              }}
             />
           </div>
           <h1 className="table-title">Products</h1>
           <div className="table-products-list-container">
             <div className="table-products-list">
-              <Table products={productsArr} setShowModal={setShowModal}/>
+              <Table
+                products={productsArr}
+                setShowModalDelete={setShowModalDelete}
+                setShowModalEdit={setShowModalEdit}
+                setFormTitle={setFormTitle}
+              />
             </div>
           </div>
         </div>

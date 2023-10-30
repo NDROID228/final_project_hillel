@@ -1,7 +1,7 @@
-import "./ModalDelete.css";
+import "./ModalDelete.scss";
 import ButtonModal from "../ButtonModal/ButtonModal";
 
-const ModalDelete = ({ showModal, setShowModal, getDataTable }) => {
+const ModalDelete = ({ showModalDelete, setShowModalDelete, getDataTable }) => {
   const deleteOnClick = async (frontID) => {
     let result;
     try {
@@ -21,7 +21,7 @@ const ModalDelete = ({ showModal, setShowModal, getDataTable }) => {
 
       result = await response.json();
       //   console.log(result);
-      setShowModal({ state: "hidden", id: null });
+      setShowModalDelete({ state: "hidden", id: null });
       getDataTable();
     } catch (err) {
       console.error(err);
@@ -29,26 +29,28 @@ const ModalDelete = ({ showModal, setShowModal, getDataTable }) => {
   };
 
   return (
-    <>
-      <div className={`modal-bg ${showModal.state}`}></div>
-      <div className={`modal ${showModal.state}`}>
-        <div className="modal-text">
-          <h1>Are you sure you want to delete this product?</h1>
-        </div>
-        <div className="modal-buttons">
-          <ButtonModal
-            title="Cancel"
-            color="grey"
-            onClickEvt={() => setShowModal({ state: "hidden", id: null })}
-          />
-          <ButtonModal
-            title="Delete"
-            color="red"
-            onClickEvt={() => deleteOnClick(showModal.id)}
-          />
+    <div className={`modal ${showModalDelete.state}`}>
+      <div className="modal-bg"></div>
+      <div className="modal-container">
+        <div className={`modal-delete-box`}>
+          <div className="modal-delete-text">
+            <h1>Are you sure you want to delete this product?</h1>
+          </div>
+          <div className="modal-delete-buttons">
+            <ButtonModal
+              title="Cancel"
+              color="grey"
+              onClickEvt={() => setShowModalDelete({ state: "hidden", id: null })}
+            />
+            <ButtonModal
+              title="Delete"
+              color="red"
+              onClickEvt={() => deleteOnClick(showModalDelete.id)}
+            />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

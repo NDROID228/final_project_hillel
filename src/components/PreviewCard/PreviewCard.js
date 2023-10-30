@@ -1,4 +1,4 @@
-import "./PreviewCard.css";
+import "./PreviewCard.scss";
 import { useNavigate } from "react-router-dom";
 import Buy from "../../assets/img/ProductPreview/buy.png";
 

@@ -1,9 +1,14 @@
-import "./TableRow.css";
+import "./TableRow.scss";
 import ButtonTable from "../ButtonTable/ButtonTable";
 
-const TableRow = ({ rowValue, setShowModal }) => {
+const TableRow = ({
+  rowValue,
+  setShowModalDelete,
+  setShowModalEdit,
+  setFormTitle,
+}) => {
   return (
-    <tr key={"tr-" + rowValue.frontID}>
+    <tr>
       <td>{rowValue.frontID}</td>
       <td>{rowValue.category}</td>
       <td>{rowValue.name}</td>
@@ -17,8 +22,19 @@ const TableRow = ({ rowValue, setShowModal }) => {
           justifyContent: "space-around",
         }}
       >
-        <ButtonTable typeBtn="edit" onClickMethod={() => (rowValue.frontID)} />
-        <ButtonTable typeBtn="delete" onClickMethod={() => setShowModal({state: "", id: rowValue._id})} />
+        <ButtonTable
+          typeBtn="edit"
+          onClickMethod={() => {
+            setShowModalEdit({ state: "", id: rowValue._id });
+            setFormTitle("Edit product");
+          }}
+        />
+        <ButtonTable
+          typeBtn="delete"
+          onClickMethod={() => {
+            setShowModalDelete({ state: "", id: rowValue._id });
+          }}
+        />
       </td>
     </tr>
   );
