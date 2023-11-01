@@ -1,4 +1,4 @@
-import "./ProductPreviewPage.css";
+import "./ProductPreviewPage.scss";
 import React, { useState, useEffect } from "react";
 import Logo from "../../assets/img/somelogo.png";
 import imgLenovo from "../../assets/img/ProductPreview/lenovo.png";

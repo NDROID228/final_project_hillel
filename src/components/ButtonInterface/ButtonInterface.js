@@ -1,4 +1,4 @@
-import "./ButtonInterface.css";
+import "./ButtonInterface.scss";
 
 import iconPlus from "../../assets/img/ProductTable/plus.png";
 import iconAdmin from "../../assets/img/ProductTable/admin.png";

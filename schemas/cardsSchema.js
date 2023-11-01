@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const cardsSchema = new Schema({
-    frontID: {
-        type: Number,
-        require: true,
-    },
     category: {
         type: String,
         require: true,
@@ -22,8 +18,8 @@ const cardsSchema = new Schema({
         type: Number,
         require: true,
     },
-    text: {
-        type: Object,
+    description: {
+        type: String,
         require: true,
     },
 });

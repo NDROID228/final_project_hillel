@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ProductDetails.css";
+import "./ProductDetails.scss";
 import Logo from "../../assets/img/somelogo.png";
 import ArrowBack from "../../assets/img/ProductDetails/arrow-back.png";
 import Lenovo from "../../assets/img/ProductPreview/lenovo.png";
@@ -40,17 +40,17 @@ const ProductDetails = (props) => {
     getDataDetails();
   }, []);
 
-  const textUnpacking = (textObj) => {
-    let resultArr = [];
-    for (const key in textObj) {
-      const paragraphArr = textObj[key];
-      resultArr.push(
-      <p className="bold-text"><b>{paragraphArr[0]}</b></p>, 
-      <p className="regular-text">{paragraphArr[1]}</p>
-      );
-    }
-    return resultArr;
-  };
+  // const textUnpacking = (textObj) => {
+  //   let resultArr = [];
+  //   for (const key in textObj) {
+  //     const paragraphArr = textObj[key];
+  //     resultArr.push(
+  //     <p className="bold-text"><b>{paragraphArr[0]}</b></p>, 
+  //     <p className="regular-text">{paragraphArr[1]}</p>
+  //     );
+  //   }
+  //   return resultArr;
+  // };
 
   let navigate = useNavigate();
   const goBack = () => {
@@ -90,7 +90,7 @@ const ProductDetails = (props) => {
           <h3>
             Опис {`${detailsObj.category || ""} ${detailsObj.name || ""}`}
           </h3>
-          {textUnpacking(detailsObj.text).map((text) => text)}
+          {detailsObj.description}
         </div>
       </div>
     </div>

@@ -90,6 +90,7 @@ app.get("/infoTable", cors(), (req, res) => {
         name: 1,
         quantity: 1,
         price: 1,
+        description: 1,
       }
     )
       .exec()
@@ -117,8 +118,7 @@ app.get("/infoCards", cors(), (req, res) => {
     Products.find(
       {},
       {
-        _id: 0,
-        frontID: 1,
+        _id: 1,
         category: 1,
         name: 1,
         quantity: 1,
@@ -149,19 +149,19 @@ app.get("/infoCards", cors(), (req, res) => {
 
 app.post("/infoDetails", cors(), (req, res) => {
   let conn = mongoose.connection;
-  console.log(Number(req.body.ID));
+  console.log(req.body.ID);
   let getDataPromise = new Promise((resolve, reject) => {
     Products.find(
-      { frontID: Number(req.body.ID) },
+      { _id: req.body.ID },
       {
         _id: 0,
         category: 1,
-        name: 1,
+        description: 1,
         quantity: 1,
         price: 1,
         amount: 1,
         isAvailable: 1,
-        text: 1,
+        description: 1,
       }
     )
       .exec()
@@ -176,8 +176,8 @@ app.post("/infoDetails", cors(), (req, res) => {
   getDataPromise
     .then((resolve) => {
       let result = JSON.stringify(resolve);
-      console.log("infoDetails");
-      console.log(resolve);
+      // console.log("infoDetails");
+      // console.log(resolve);
       res.json(result);
     })
     .catch((err) => {
@@ -201,7 +201,29 @@ app.delete("/deleteRow", cors(), (req, res) => {
   });
 });
 
-app.get("/updateRow", cors(), (req, res) => {});
+app.patch("/updateRow", cors(), (req, res) => {
+  const dataObject = req.body.dataObject;
+  console.log(dataObject);
+  Products.findByIdAndUpdate(dataObject._id, {
+    $set: {
+      category: dataObject.category,
+      name: dataObject.name,
+      quantity: dataObject.quantity,
+      price: dataObject.price,
+      description: dataObject.description,
+    },
+  })
+  .exec()
+  .then((resp) => {
+    res.json(resp)
+  })
+});
+
+app.put("/addRow", cors(), (req, res) => {
+  const dataObject = req.body.dataObject;
+  console.log(dataObject);
+  Products.insertMany(dataObject).then(resp => res.json(resp));
+});
 
 app.get("/", (req, res) => {
   return res.send("Hello, I`m just a little server >_<");

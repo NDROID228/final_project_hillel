@@ -1,4 +1,4 @@
-import "./InputForm.css";
+import "./InputForm.scss";
 import eyeOpened from "../../assets/img/Login/eye_opened.png";
 import eyeClosed from "../../assets/img/Login/eye_closed.png";
 import { useReducer } from "react";

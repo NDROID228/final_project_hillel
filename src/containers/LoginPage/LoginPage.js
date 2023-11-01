@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoginPage.css";
+import "./LoginPage.scss";
 import Button from "../../components/ButtonInterface/ButtonInterface";
 import logo from "../../assets/img/somelogo.png";
 import InputForm from "../../components/InputForm/InputForm";

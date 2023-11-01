@@ -1,4 +1,4 @@
-import "./ButtonTable.css";
+import "./ButtonTable.scss";
 import iconEdit from "../../assets/img/ProductTable/edit.png";
 import iconDelete from "../../assets/img/ProductTable/delete.png";
 
