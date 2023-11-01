@@ -9,13 +9,13 @@ const TableRow = ({
 }) => {
   return (
     <tr>
-      <td>{rowValue.frontID}</td>
+      <td>{rowValue._id}</td>
       <td>{rowValue.category}</td>
       <td>{rowValue.name}</td>
       <td>{rowValue.quantity}</td>
       <td>{rowValue.price}</td>
       <td
-        key={"td-button-" + rowValue.frontID}
+        key={"td-button-" + rowValue._id}
         style={{
           display: "flex",
           alignItems: "center",
@@ -25,7 +25,7 @@ const TableRow = ({
         <ButtonTable
           typeBtn="edit"
           onClickMethod={() => {
-            setShowModalEdit({ state: "", id: rowValue._id });
+            setShowModalEdit({ state: "", id: rowValue });
             setFormTitle("Edit product");
           }}
         />

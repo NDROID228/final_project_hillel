@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Buy from "../../assets/img/ProductPreview/buy.png";
 
 const PreviewCard = ({ data }) => {
-  console.log(data);
   const navigate = useNavigate();
 
-  const productID = data.frontID;
+  const productID = data._id;
   let isReady = "";
   if (data.isAvailable) {
     isReady = "Готовий до відправки";

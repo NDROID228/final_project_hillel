@@ -60,6 +60,7 @@ const ProductTablePage = (props) => {
           showModalEdit={showModalEdit}
           setShowModalEdit={setShowModalEdit}
           formTitle={formTitle}
+          getDataTable={getDataTable}
           /*editDataTable={editDataTable}*/
         />
         <div className="box">

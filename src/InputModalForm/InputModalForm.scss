@@ -19,6 +19,8 @@
       display: flex;
       align-items: start;
       justify-content: start;
+      overflow: scroll;
+      word-wrap: break-word;
     }
   }
   input::placeholder {
